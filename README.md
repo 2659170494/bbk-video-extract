@@ -13,7 +13,7 @@ Win编译需要下载libiconv,并且编译出来无法解密文件(感觉是缓�
 
 libiconv安装教程详情请看:https://gnuwin32.sourceforge.net/packages/libiconv.htm
 
-### Win编译命令为:gcc blmkey.c bmdkey.c main.c -I <libiconv Include目录> -L <libiconv Lib目录> -liconv -o <输出的可执行文件(如main_get.exe)>
+### Win编译命令为:gcc(mingw-w64:i686-w64-mingw32-gcc-<版本号，可利用linux自动填充查看>) blmkey.c bmdkey.c main_win.c -I <libiconv Include目录> -L <libiconv Lib目录> -liconv -o <输出的可执行文件(如main_get.exe)>
 
 Win编译完成后还需要将libiconv中bin文件夹里的文件(dll和exe)拷贝到编译文件的根目录(或许直接使用installer装也行？)才能运行
 
