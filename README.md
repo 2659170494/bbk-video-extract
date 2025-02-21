@@ -7,7 +7,7 @@ bbk-video-extract
 
 来源于对步步高某ROM的逆向.
 
-### Linux编译命令为:gcc blmkey.c bmdkey.c main.c -o <输出的可执行文件(如main_get)>
+### Linux编译命令为:gcc blmkey.c bmdkey.c main.c <若提示缺少libiconv可添加-liconv> -o <输出的可执行文件(如main_get)>
 
 Win编译需要下载libiconv,并且编译出来无法解密文件(感觉是缓冲区问题)。目前测试仅能在ubuntu20中的mingw_w64编译，win版msys2依旧无法引用库
 

@@ -179,12 +179,10 @@ void init_keys(int offs){
 
 int main(int argc,char *argv[]){
    strcpy(fname,argv[1]);
-   fprintf(stderr,"\nfname:%s\n",fname);
    FILE *f=fopen(fname,"rb");
    if(read_header(f)){
       char ofname[0x400];
       strcpy(ofname,fname);
-      fprintf(stderr,"\nofname:%s\n",ofname);
       char *ibuf;
       char *obuf;
       ibuf=header_buf+(lrc_offs-9);
@@ -211,13 +209,9 @@ int main(int argc,char *argv[]){
       }
       else{
 	 ibuf=header_buf+0x18;
-	 fprintf(stderr,"\nibuf:%s\n",ibuf);
-	 obuf=strrchr(ofname,'/'); //注意！输入的文件必须带有./或者/，否则后面的scrapy会直接段错误然后程序崩溃
-	 fprintf(stderr,"\n1obuf:%s\n",obuf);
+	 obuf=strrchr(ofname,'/');
 	 strcpy(obuf,"/done-");
-	 fprintf(stderr,"\n2obuf:%s\n",obuf);
 	 obuf+=6;
-	 fprintf(stderr,"\n3obuf:%s\n",obuf);
 	 iconv_t cd=iconv_open("UTF-8","GBK");
 	 iconv(cd,&ibuf,&il,&obuf,&ol);
 	 iconv_close(cd);
